@@ -1,0 +1,7 @@
+{
+  "name": "IonicAllinOne",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
