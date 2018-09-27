@@ -6,7 +6,7 @@ import { NavController,NavParams } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
-
+  name = 'john doe ith njaanada kalla baduva enne manasil';
   restaurant: string;
   constructor(public navCtrl: NavController,private navParams: NavParams) {
 

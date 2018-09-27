@@ -13,6 +13,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HttpClientModule } from '@angular/common/http';
 import { WebRestServiceProvider } from '../providers/web-rest-service/web-rest-service';
+import { CapitalizePipe } from '../pipes/Capitalize/Capitalize';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -20,12 +25,14 @@ import { WebRestServiceProvider } from '../providers/web-rest-service/web-rest-s
     HomePage,
     ListPage,
     LoginPage,
-    UserlistPage
+    UserlistPage,CapitalizePipe
+    
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -41,5 +48,5 @@ import { WebRestServiceProvider } from '../providers/web-rest-service/web-rest-s
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     WebRestServiceProvider
   ]
-})
+})                                                                                                    
 export class AppModule {}

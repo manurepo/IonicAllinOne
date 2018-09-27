@@ -1,4 +1,4 @@
-webpackJsonp([2],{
+webpackJsonp([3],{
 
 /***/ 100:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -82,6 +82,7 @@ var UserlistPage = /** @class */ (function () {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.hitServer = hitServer;
+        this.searchListKey = "";
         this.getUsers();
     }
     UserlistPage.prototype.getUsers = function () {
@@ -92,17 +93,27 @@ var UserlistPage = /** @class */ (function () {
             console.log("user list", _this.users);
         });
     };
+    // list search functionality
+    //   onInput(event) {
+    //     this.service.findByName(this.searchListKey)
+    //         .then(data => {
+    //             this.properties = data;
+    //             if (this.viewMode === "map") {
+    //                 this.showMarkers();
+    //             }
+    //         })
+    //         .catch(error => alert(JSON.stringify(error)));
+    // }
     UserlistPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad UserlistPage');
     };
     UserlistPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-userlist',template:/*ion-inline-start:"/Users/admin/Desktop/Manu/Workouts/IonicAllinOne/src/pages/userlist/userlist.html"*/'<!--\n  Generated template for the UserlistPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>userlist</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding >\n  <ion-list inset>\n    <ion-item *ngFor="let user of users">\n      <h2>{{user.name}}</h2>\n      <p>{{user.email}}</p>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/admin/Desktop/Manu/Workouts/IonicAllinOne/src/pages/userlist/userlist.html"*/,
+            selector: 'page-userlist',template:/*ion-inline-start:"/Users/admin/Desktop/Manu/Workouts/IonicAllinOne/src/pages/userlist/userlist.html"*/'<!--\n  Generated template for the UserlistPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <!-- <ion-navbar>\n    <ion-title>userlist</ion-title>\n  </ion-navbar> -->\n\n\n  <ion-navbar>\n    <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n    </button>\n   \n</ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding >\n    <ion-searchbar [(ngModel)]="terms"></ion-searchbar>\n    <ion-list>\n      <ion-item *ngFor="let user of users ">\n    \n        <h2>{{user.name}}</h2>\n        <p>{{user.email}}</p>\n      </ion-item>\n    </ion-list>\n\n  <ion-list inset>\n    <ion-item *ngFor="let user of users">\n      <h2>{{user.name}}</h2>\n      <p>{{user.email}}</p>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/admin/Desktop/Manu/Workouts/IonicAllinOne/src/pages/userlist/userlist.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_web_rest_service_web_rest_service__["a" /* WebRestServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_web_rest_service_web_rest_service__["a" /* WebRestServiceProvider */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_web_rest_service_web_rest_service__["a" /* WebRestServiceProvider */]])
     ], UserlistPage);
     return UserlistPage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=userlist.js.map
@@ -130,13 +141,17 @@ webpackEmptyAsyncContext.id = 113;
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"../pages/login/login.module": [
-		278,
-		1
-	],
-	"../pages/userlist/userlist.module": [
+	"../pages/locateme/locateme.module": [
 		279,
 		0
+	],
+	"../pages/login/login.module": [
+		280,
+		2
+	],
+	"../pages/userlist/userlist.module": [
+		281,
+		1
 	]
 };
 function webpackAsyncContext(req) {
@@ -306,12 +321,14 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__ = __webpack_require__(200);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_common_http__ = __webpack_require__(157);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_web_rest_service_web_rest_service__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pipes_Capitalize_Capitalize__ = __webpack_require__(285);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -334,12 +351,13 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */],
                 __WEBPACK_IMPORTED_MODULE_5__pages_list_list__["a" /* ListPage */],
                 __WEBPACK_IMPORTED_MODULE_6__pages_login_login__["a" /* LoginPage */],
-                __WEBPACK_IMPORTED_MODULE_7__pages_userlist_userlist__["a" /* UserlistPage */]
+                __WEBPACK_IMPORTED_MODULE_7__pages_userlist_userlist__["a" /* UserlistPage */], __WEBPACK_IMPORTED_MODULE_12__pipes_Capitalize_Capitalize__["a" /* CapitalizePipe */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                     links: [
+                        { loadChildren: '../pages/locateme/locateme.module#LocatemePageModule', name: 'LocatemePage', segment: 'locateme', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/userlist/userlist.module#UserlistPageModule', name: 'UserlistPage', segment: 'userlist', priority: 'low', defaultHistory: [] }
                     ]
@@ -404,10 +422,10 @@ var MyApp = /** @class */ (function () {
         this.platform = platform;
         this.statusBar = statusBar;
         this.splashScreen = splashScreen;
-        // rootPage: any = HomePage;
+        // launch page can define here
         this.rootPage = __WEBPACK_IMPORTED_MODULE_6__pages_login_login__["a" /* LoginPage */];
         this.initializeApp();
-        // used for an example of ngFor and navigation
+        // used for an example of ngFor and navigation in side menu list
         this.pages = [
             { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */] },
             { title: 'List', component: __WEBPACK_IMPORTED_MODULE_5__pages_list_list__["a" /* ListPage */] },
@@ -444,6 +462,46 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 285:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CapitalizePipe; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+/**
+ * Generated class for the CapritalizePipe pipe.
+ *
+ * See https://angular.io/api/core/Pipe for more info on Angular Pipes.
+ */
+var CapitalizePipe = /** @class */ (function () {
+    function CapitalizePipe() {
+    }
+    CapitalizePipe.prototype.transform = function (value, args) {
+        if (!value)
+            return value;
+        return value.replace(/\w\S*/g, function (txt) {
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        });
+    };
+    CapitalizePipe = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["S" /* Pipe */])({
+            name: 'Capitalize',
+        })
+    ], CapitalizePipe);
+    return CapitalizePipe;
+}());
+
+//# sourceMappingURL=Capitalize.js.map
+
+/***/ }),
+
 /***/ 77:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -466,16 +524,18 @@ var HomePage = /** @class */ (function () {
     function HomePage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.name = 'john doe ith njaanada kalla baduva enne manasil';
         this.restaurant = navParams.get('param1');
         console.log("this.restaurant", this.restaurant);
     }
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/admin/Desktop/Manu/Workouts/IonicAllinOne/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <p>Here we go</p>\n\n</ion-content>\n'/*ion-inline-end:"/Users/admin/Desktop/Manu/Workouts/IonicAllinOne/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Users/admin/Desktop/Manu/Workouts/IonicAllinOne/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <p>Here we go</p>\n  <p>My name is <strong>{{ name | Capitalize }}</strong>.</p>\n</ion-content>\n'/*ion-inline-end:"/Users/admin/Desktop/Manu/Workouts/IonicAllinOne/src/pages/home/home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object])
     ], HomePage);
     return HomePage;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=home.js.map

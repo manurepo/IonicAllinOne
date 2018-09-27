@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
 import { WebRestServiceProvider } from '../../providers/web-rest-service/web-rest-service';
 
 
@@ -17,6 +16,8 @@ import { WebRestServiceProvider } from '../../providers/web-rest-service/web-res
   templateUrl: 'userlist.html',
 })
 export class UserlistPage {
+
+  searchListKey: string = "";
   users: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public hitServer: WebRestServiceProvider) {
     this.getUsers();
@@ -24,13 +25,28 @@ export class UserlistPage {
 
   getUsers() {
     this.hitServer.getUsers()
-      .then(data => {
+      .then(data => { 
         this.users = data;
         console.log("user list", this.users);
       });
   }
+// list search functionality
+
+//   onInput(event) {
+//     this.service.findByName(this.searchListKey)
+//         .then(data => {
+//             this.properties = data;
+//             if (this.viewMode === "map") {
+//                 this.showMarkers();
+//             }
+//         })
+//         .catch(error => alert(JSON.stringify(error)));
+// }
+
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad UserlistPage');
   }
+  
 
 }

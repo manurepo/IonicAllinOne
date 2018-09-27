@@ -8,13 +8,13 @@ import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { UserlistPage } from '../pages/userlist/userlist';
 
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-
-  // rootPage: any = HomePage;
+  // launch page can define here
   rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
@@ -22,7 +22,7 @@ export class MyApp {
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
+    // used for an example of ngFor and navigation in side menu list
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
